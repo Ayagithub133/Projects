@@ -1,0 +1,46 @@
+﻿@model  IEnumerable< JobsWebSite.Models.JobsViewModel>
+
+
+
+<form method="get" action="">
+   @* @foreach (var item in Model)
+    { <h1 class="userLabels" style="background-color:white; width:180px;height:25px;border-radius:5px;">@item.JobTitle
+    </h1>*@
+         <table>
+                <tr class="categorytablehead">
+                    <th>Applier Name</th>
+                    <th>Resala</th>
+                    <th>ApplyDate</th>
+                    <th>Job Title</th>
+                    
+                </tr>
+        @*@foreach (var l in item.items)
+        { 
+            *@
+             @foreach (var item in Model)
+             {  
+ 
+             <tr class="categorytablebody">
+                <td>@item.FullName</td>
+                <td>@item.Resala</td>
+                <td>@item.ApplyDate</td>
+                <td>@item.JobTitle</td>
+            </tr>
+            
+        }
+             </table>
+        <hr />
+    
+</form>
+
+
+
+
+
+
+
+
+
+
+
+

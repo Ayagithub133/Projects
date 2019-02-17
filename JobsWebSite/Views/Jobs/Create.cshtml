@@ -1,0 +1,87 @@
+﻿@model  JobsWebSite.Models.Jobs
+
+@{int k = 0;
+    }
+<html>
+    <head>
+        <title></title>
+        
+    </head>
+    <body>
+        <h3 class="userLabels">Create Jobs</h3>
+        <br /><hr /><br />
+       @using (Html.BeginForm("Create", "Jobs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+       {
+           <table>
+               <tr>
+                  <td class="userLabels">@Html.DisplayNameFor(x => Model.JobTitle)</td>
+                  <td >
+                      @Html.ValidationMessageFor(x=>Model.JobTitle,null,new{@class="error"})
+                      <input type="text" name="JobTitle" class="userInputs" style="width:300px;height:40px;margin-left:90px ;padding:10px"/></td>
+               </tr>
+               <tr>
+                   <td class="userLabels">@Html.DisplayNameFor(x => Model.JobDescription)</td>
+                   <td >
+                       @Html.ValidationMessageFor(x=>Model.JobDescription,null,new{@class="error"})
+                       <input type="text" name="JobDescription" class="userInputs" style="width:300px;height:150px;margin-left:90px;padding-top:10px"/></td>
+               </tr>
+             @*
+             @Html.DisplayNameFor(x => Model.CategoryId)
+             
+             <select name="CategoryId">
+                 <option value="1">General Sector</option>
+                 <option value="2">Special Sector</option>
+             </select>*@
+               <tr>
+                   <td class="userLabels">@Html.DisplayNameFor(x => Model.Category.CategoryName)</td>
+                   <td ><select name="CategoryId" class="userLabels" style="width:150px;height:40px">
+                        @foreach (var i in(SelectList)ViewBag.CategoryNames)
+                        {
+                           k = k + 1;
+                          <option value="@k" >@i.Text
+
+                          </option>
+                        }
+                      </select></td>
+               </tr>
+               <tr>
+                   <td class="userLabels">@Html.DisplayNameFor(x=>Model.JobImage)
+                      <div id="showwarning" style="background-color:#f13a5b;height:20px;display:none">
+                      <p id="warning"></p>
+                      </div>
+                  </td>
+                  <td ><input type="file" name="upload" id="pic" class="userLabels"/></td>
+              </tr>
+               <tr><td ><input type="submit" value="Save" id="save" onclick="CkeckImage()" class="Login1"/></td></tr>
+     
+           </table>
+            
+
+       }
+
+        @Html.ActionLink("Back To List", "Index", new { }, new { @class = "Link2" })
+           
+        
+    </body>
+
+</html>
+@* @section  Scripts
+    {
+       <script>
+           //$(function () {
+           //    $("#save").Click(function () {
+           //        if ($("#pic").Val() == "")
+           //        {
+           //            $("#showwarning").FadeIn();
+           //            $("#warning").append("Please Select an image");
+           //            return false;
+           //        }
+           //    })
+           //})
+           function CkeckImage()
+           {
+               if (document.getElementById("#pic").value == "")
+               { return false;}
+           }
+       </script>
+        }*@

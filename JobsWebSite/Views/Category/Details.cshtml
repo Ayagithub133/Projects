@@ -1,0 +1,33 @@
+﻿@model  JobsWebSite.Models.Category
+
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h3 class="userLabels">Details of categories.</h3>
+        <br /><hr /><br />
+        <form method="get" action="">
+            @if(Model!=null)
+            {
+                <table>
+                    <tr><td><label class="userLabels" style="color:#d7b4b4">CategoryName</label></td>
+                        <td><label class="userLabels" style="color:#c5eff7;font-size:18px">@Model.CategoryName</label></td></tr>
+                    <tr>
+                       <td> <label class="userLabels" style="color:#d7b4b4">CategoryDescription</label></td>
+                       <td><label class="userLabels" style="color:#c5eff7;font-size:18px">@Model.CategoryDescription</label></td>
+                    </tr>
+                    <tr>
+                       <td> <label class="userLabels" style="color:#d7b4b4">Id</label></td>
+                       <td><label class="userLabels" style="color:#c5eff7;font-size:18px">@Model.Id</label></td>
+                    </tr>
+                </table>
+           
+         
+            }
+            else
+            {<p></p>}
+        </form>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "Link2" })|@Html.ActionLink("Back To List", "Index", new { }, new { @class = "Link2" })
+    </body>
+</html>

@@ -1,0 +1,40 @@
+﻿@model  JobsWebSite.Models.Jobs
+
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1 style="color:white;">Details of Job</h1>
+        <br /><hr /><br />
+        <form method="get" action="">
+            <table>
+            <tr>
+              <td class="userLabels" style="color:#f36666">@Html.DisplayNameFor(x=>Model.JobTitle)</td>
+              <td class="userLabels" style="color:#b88"> @Html.DisplayName(Model.JobTitle)</td>
+            </tr>
+            <tr>
+              <td class="userLabels" style="color:#f36666"> @Html.DisplayNameFor(x=>Model.JobDescription)</td>
+              <td class="userLabels" style="color:#b88"> @Html.DisplayName(Model.JobDescription)</td>
+           </tr>
+            <tr>
+              <td class="userLabels" style="color:#f36666">@Html.DisplayNameFor(x=>Model.CategoryId)</td>
+              @*@Html.DisplayName((Model.CategoryId).ToString())*@
+              <td class="userLabels" style="color:#b88">@if(Model.CategoryId==1)
+                            {<span >General Sector</span>}
+              else if (Model.CategoryId == 2)
+                            {<span>Special Sector</span>}</td>
+            </tr>
+            <tr>
+              <td class="userLabels" style="color:#f36666">@Html.DisplayNameFor(x=>Model.JobImage)</td>
+              <td class="userLabels" style="color:#b88"><img src="~/Uploads/@Model.JobImage" style="width:70px;height:80px" /></td>
+            </tr>
+          
+          </table>
+      
+            
+        </form>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "Link2" })|@Html.ActionLink("Back To List", "Index", new { }, new { @class = "Link2" })
+        @Html.ActionLink("Apply for job", "Apply", new {controller="Home",action="Apply",id=@Model.Id }, new { @class = "Link2" })
+    </body>
+</html>

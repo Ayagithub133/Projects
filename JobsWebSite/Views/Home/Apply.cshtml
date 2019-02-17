@@ -1,0 +1,23 @@
+﻿
+@model  JobsWebSite.Models.ApplierForJob
+<html>
+   
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="~/Contents/style.css" />
+    </head>
+    <body>
+        <h2 style="color:white">Apply fro job</h2>
+<br />
+<hr />
+
+<form method="post" action="">
+     <div class="userLabels" style="margin-left:6px"> @Html.Label("Send Message")</div>
+     @Html.ValidationMessageFor(x=>Model.Resala,null,new{@class="error"})
+     <textarea  name="Resala" style="border-color:white;border-style:solid; width:400px;height:200px;color:#22313f;font-size:18px;margin-left:6px;border-radius:5px;font-style:oblique;padding:10px" placeholder="Write Your Message" ></textarea>
+     
+     <div><input type="submit" value="Send" class="Login1"/></div>
+</form>
+    </body>
+</html>
+

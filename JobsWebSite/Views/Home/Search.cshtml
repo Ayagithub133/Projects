@@ -1,0 +1,44 @@
+﻿@model  IEnumerable<JobsWebSite.Models.Jobs>
+
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="~/Contents/style.css" type="text/css"/>
+    </head>
+    <body>
+
+  
+<form method="get" action="">
+ 
+ 
+           @* <table>
+                <tr>*@
+    @if(Model!=null)
+    {
+                  foreach (var wazifa in Model)
+                 { 
+                 
+                <div class="searchresult">   
+                    <img src="~/Uploads/@wazifa.JobImage" /> 
+                     <h3>@Html.DisplayName(wazifa.JobTitle)</h3>
+                     <h4>@Html.DisplayName(wazifa.JobDescription)</h4>
+                     <p>@Html.ActionLink("Details", "Details", new { controller = "Jobs", action = "Details", id = wazifa.Id }, new { @class = "Link1" })</p>
+                    
+               </div>
+                      
+             
+                  }
+    }
+    else{<div>SORRY NOT EXIST</div>}
+            @*      
+              </tr>
+            </table>*@
+       
+       
+       
+    
+   
+</form>
+  </body>
+</html>
+

@@ -1,0 +1,10 @@
+﻿@model  JobsWebSite.Models.Role
+
+<form method="post" action="">
+    <label class="userLabels" style="color:#c5eff7">Role Name</label>
+    @Html.ValidationMessageFor(x=>Model.RoleName,null,new{@class="error"})
+    <input type="text"  name="RoleName" class="userInputs" style="width:300px; height:40px"/>
+    <input type="submit" value="save" class="Login1"/>
+</form>
+    
+@Html.ActionLink("Back To List", "Index", new { }, new { @class = "Link2" })

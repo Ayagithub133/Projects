@@ -1,0 +1,21 @@
+﻿@model  IEnumerable<JobsWebSite.Models.Jobs>
+
+<form method="get" action="">
+    @foreach (var item in Model)
+    {
+        <table>
+            <tr>
+                <th>Job Title</th>
+                <th>Message</th>
+                <th>Date Applied</th>
+            </tr>
+            <tr>
+                <td>@item.JobTitle</td>
+                <td>@item.applierForJob.Resala</td>
+                <td>@item.applierForJob.ApplyDate
+</td>
+            </tr>
+        </table>
+    }
+
+</form>

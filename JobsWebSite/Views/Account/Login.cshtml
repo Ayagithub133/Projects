@@ -1,0 +1,39 @@
+﻿@model  JobsWebSite.Models.UserProfile
+
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="~/Contents/style.css" />
+    </head>
+    <body>
+        <form method="post" action="">
+        <table class="TableStyle1">
+            <tr>
+                <td class="TextStyle1">Email</td>
+                <td>
+                    @Html.ValidationMessageFor(x=>Model.Email,null,new{@class="error"})
+                    <input type="text" name="Email" class="InputLoginFields1"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="TextStyle1">Password</td>
+                <td>
+                    @Html.ValidationMessageFor(x=>Model.UserPassword,null,new{@class="error"})
+                    <input type="text" name="UserPassword" class="InputLoginFields1"/>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Login" class="Login1 " /></td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Sign Up", "Register", new {Controller="Account",Action="Register"},new{@class="signUp1"})
+                </td>
+            </tr>
+            <tr><td colspan="2">@*@Html.ActionLink("Forget your password ???", "", new { @class = "Link1" })*@
+                                 <a href="#" class="Link1">Forget your password ???</a>
+                </td></tr>
+        </table>
+            </form>
+    </body>
+</html>

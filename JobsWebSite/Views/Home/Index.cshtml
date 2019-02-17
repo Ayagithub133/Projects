@@ -1,0 +1,43 @@
+﻿@model  IEnumerable<JobsWebSite.Models.Category>
+
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="~/Contents/style.css" type="text/css"/>
+    </head>
+    <body>
+
+  
+<form method="get"  action="">
+ 
+    @foreach (var item in Model)
+    {
+    <div><h3>@item.CategoryName</h3>
+        <div  >
+            <table>
+                <tr>
+                  @foreach (var wazifa in item.Jobs)
+                 { 
+                 
+                <td class="wazifainfo" @*style="background-color:white;margin-left:50px;display:inline-block;width:300px;padding-left:10px"*@> 
+                    <img src="~/Uploads/@wazifa.JobImage" /> 
+                     <h2 style="color:#24252a">@Html.DisplayName(wazifa.JobTitle)</h2>
+                     <h4 style="color:#00b5cc">@Html.DisplayName(wazifa.JobDescription)</h4>
+                    <p>@Html.ActionLink("Details", "Details", new { controller = "Jobs", action = "Details", id =wazifa.Id }, new { @class = "Link1" })</p>
+                    <p>@Html.ActionLink("Apply for job","Apply",new{ controller = "Home", action = "Apply",id=wazifa.Id}, new { @class = "Link1" })</p>
+               </td>
+                      
+             
+                  }
+                  
+              </tr>
+            </table>
+       
+         </div>
+    </div>
+       
+    
+    }
+</form>
+  </body>
+</html>

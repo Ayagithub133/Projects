@@ -1,0 +1,36 @@
+﻿@model  JobsWebSite.Models.Category
+
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h3 class="userLabels">Do you are sure to delete that category ??</h3>
+        <br /><hr /><br />
+        <form method="post" action="">
+            @if(Model!=null)
+            {
+                <table>
+                    <tr class="categorytablebody"><td>@Html.DisplayNameFor(x=>Model.CategoryName)</td>
+                        <td style="color:#1ee6e6">@Html.DisplayName(Model.CategoryName)</td>
+
+                    </tr>
+                    <tr class="categorytablebody">
+                        <td> @Html.DisplayNameFor(x=>Model.CategoryDescription)</td>
+                        <td style="color:#1ee6e6"> @Html.DisplayName(Model.CategoryDescription)</td>
+                    <tr class="categorytablebody">
+                         <td>@Html.DisplayNameFor(x=>x.Id)</td>
+                         <td style="color:#1ee6e6"> @Html.DisplayName((Model.Id).ToString())</td>
+                    </tr>
+                </table>
+          
+            
+            
+                
+            }
+            else{<p></p>}
+            <input type="submit" value="Delete" class="Login1"/>|@Html.ActionLink("Back To List", "Index", new { }, new { @class = "Link2" })
+        </form>
+      
+    </body>
+</html>

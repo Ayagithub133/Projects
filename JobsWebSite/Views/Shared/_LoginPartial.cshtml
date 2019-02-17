@@ -1,0 +1,41 @@
+﻿@*@model  JobsWebSite.Models.UserProfile*@
+
+@if (Session["username"] != null)
+{
+
+<ul class="navContent2">
+    <li class="navContentElement" style="margin-right:60px">@Html.ActionLink(Session["username"].ToString(),"PersonalInfo",new{controller = "Home", action = "PersonalInfo"},new{@class="link2"})
+    </li>
+     <li class="navContentElement li-list"  >
+        <a href="#" class="link2" style="margin-right:80px" onfocus="showlist">Menue</a>
+         
+        <ul >
+            @if(Session["usertype"].ToString()=="Publisher")
+            {
+           <li>@Html.ActionLink("Publish Job","Create",new{controller = "Jobs", action = "Create"},new{@class="link2"})</li>
+           <li>@Html.ActionLink("Get Appliers","GetJobsByPublisher",new{controller = "Account", action = "GetJobsByPublisher"},new{@class="link2"})</li>
+            }
+            else if(Session["usertype"].ToString()=="Applier")
+            {
+                
+           <li>@Html.ActionLink("Apply to job","Index",new{controller = "Home", action = "Index"},new{@class="link2"})</li>
+           <li>@Html.ActionLink("Get your jobs","GetJobsByUser",new{controller = "Account", action = "GetJobsByUser"},new{@class="link2"})</li>
+            }
+            else if (Session["usertype"].ToString() == "Admin")
+            {
+                <li>@Html.ActionLink("CURD on categories","Index",new{controller = "Category", action = "Index"},new{@class="link2"})</li> 
+                <li>@Html.ActionLink("Roles","Index",new{controller = "Role", action = "Index"},new{@class="link2"})</li> 
+            }
+           <li>@Html.ActionLink("Edit Your Info","Modify",new{controller = "Home", action = "Modify",id=Convert.ToInt32(Session["userid"])},new{@class="link2"})</li>
+           <li >@Html.ActionLink("Logout","Logout",new{controller = "Account", action = "Logout"},new{@class="link2"})</li>
+            
+                </ul>
+</ul>
+}
+else
+{
+    <ul class="navContent2">
+                <li class="navContentElement" style="margin-right:60px">@Html.ActionLink("Login","Login",new{controller = "Account", action = "Login"},new{@class="link2"})</li>
+                <li class="navContentElement" style="margin-right:80px">@Html.ActionLink("Registration","Register",new{controller = "Account", action = "Register"},new{@class="link2"})</li>
+    </ul>
+}

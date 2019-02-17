@@ -1,0 +1,28 @@
+﻿@model  IEnumerable<JobsWebSite.Models.Role>
+<!Doctype html>
+<html>
+    <head><title></title>
+        <link rel="stylesheet" href="~/Contents/style.css" />
+    </head>
+    <body>
+<form method="get" action="">
+    @Html.ActionLink("Add Role", "Create", new { }, new { @class = "Link2" })
+    <table>
+        <tr>
+            <th> <label class="userLabels" style="color:white">Names of Roles</label></th>
+        </tr>
+        @if(Model!=null)
+        {
+         foreach(var item in Model)
+    {
+   <tr>
+       <td> <label class="userLabels" style="color:#c5eff7">@item.RoleName</label></td>
+       <td>@Html.ActionLink("Details", "Details", new { controller = "Role", action = "Details", id = item.Id }, new { @class = "Link2 "}) |@Html.ActionLink("Delete","Delete",new{controller="Role",action="Delete",id=item.Id}, new { @class = "Link2" }) |@Html.ActionLink("Edit","Edit",new{controller="Role",action="Edit",id=item.Id}, new { @class = "Link2" })</td>
+   </tr>
+   }   }
+    </table>
+   
+</form>
+</body>
+    </html>
+    

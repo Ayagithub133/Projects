@@ -1,0 +1,43 @@
+﻿@model  IEnumerable< JobsWebSite.Models.Jobs>
+
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1 class="userLabels">Index</h1><br />
+        @Html.ActionLink("Create New Job", "Create", new { controller = "Jobs", action = "Create" }, new { @class = "Link2" })
+        <br /><hr />
+        <form method="get" action="" >
+            <table>
+                <tr class="categorytablehead">
+                    <th>Job Title</th>
+                    <th>Description Job</th>
+                    <th>Category Id</th>
+                    <th>Job Image</th>
+                    <th></th>
+                </tr>
+                @if(Model!=null)
+                {
+               foreach(var item in Model)
+               {
+                   <tr class="categorytablebody">
+                       <td>@item.JobTitle
+                       </td>
+                       <td>@item.JobDescription</td>
+                        <td>@if(item.CategoryId==1)
+                            {<p>General Sector</p>}
+                            else if(item.CategoryId==2)
+                            {<p>Special Sector</p>}
+                        </td>
+                        <td><img src="~/Uploads/@Html.DisplayFor(x=>item.JobImage)" style="width:50px;height:60px"/>
+                        </td>
+                       <td>@Html.ActionLink("Delete","Delete",new{id=item.Id},new{@class="Link2"})|@Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "Link2" })|@Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "Link2" })</td>
+                   </tr>
+               }
+               }
+            </table>
+
+        </form>
+    </body>
+</html>

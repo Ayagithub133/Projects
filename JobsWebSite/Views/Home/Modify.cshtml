@@ -1,0 +1,60 @@
+﻿@model  JobsWebSite.Models.UserProfile
+<!Doctype html>
+<html>
+    <head><title></title>
+        <link rel="stylesheet" href="~/Contents/style.css" />
+    </head>
+    <body>
+    
+<div>
+    <h2>
+        @ViewBag.Message
+    </h2>
+</div>
+<br />
+<form method="post" action="">
+    <table>
+        <tr>
+            <td><label class="userLabels">First Name</label></td>
+            <td> 
+                @Html.ValidationMessageFor(x=>Model.FirstName,null,new{@class="error"})
+                <input type="text" name="FirstName" value="@Model.FirstName" class="userInputs" style="margin-left:50px;margin-bottom:10px"/></td>
+        </tr>
+        <tr>
+            <td><label class="userLabels">Last Name</label></td>
+            <td>
+                @Html.ValidationMessageFor(x=>Model.LastName,null,new{@class="error"})
+                <input type="text" name="LastName" value="@Model.LastName" class="userInputs" style="margin-left:50px;margin-bottom:10px"/></td>
+        </tr>
+        <tr>
+            <td> <label class="userLabels">Email</label></td>
+            <td>
+                @Html.ValidationMessageFor(x=>Model.Email,null,new{@class="error"})
+                <input type="text" name="Email" value="@Model.Email" class="userInputs" style="margin-left:50px;margin-bottom:10px"/></td>
+        </tr>
+        <tr>
+            <td><label class="userLabels">Current Password</label></td>
+            <td>
+                @Html.ValidationMessageFor(x=>Model.CurrentPass,null,new{@class="error"})
+                <input type="text" name="CurrentPass" value="@Model.CurrentPass" class="userInputs" style="margin-left:50px;margin-bottom:10px"/></td>
+        </tr>
+        <tr>
+            <td> <label class="userLabels">User Password</label></td>
+            <td>
+                @Html.ValidationMessageFor(x=>Model.UserPassword,null,new{@class="error"})
+                <input type="text" name="UserPassword" value="@Model.UserPassword" class="userInputs" style="margin-left:50px;margin-bottom:10px"/></td>
+        </tr>
+        <tr>
+            <td><label class="userLabels">Confirm Password</label></td>
+            <td>
+                @Html.ValidationMessageFor(x=>Model.ConfirmPassword,null,new{@class="error"})
+                <input type="text" name="ConfirmPassword" value="@Model.ConfirmPassword" class="userInputs" style="margin-left:50px;margin-bottom:10px"/></td>
+        </tr>
+       <tr > <td colspan="2"><input type="submit" value="Save" class="btnRegister"/> </td></tr>
+ 
+   
+    </table>
+  
+</form>
+        </body>
+</html>

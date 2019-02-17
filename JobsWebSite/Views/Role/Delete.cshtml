@@ -1,0 +1,18 @@
+﻿@model  JobsWebSite.Models.Role
+
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h3 style="color:#c5eff7">Are You sure to delete that Role??</h3>
+        <br /><hr /><br />
+        <form method="post" action="">
+            <h2 style="color:#e4f1fe">Role Name :</h2>
+            <label class="userLabels">@Model.RoleName</label>
+            <input type="submit" value="Delete" class="Login1" style="margin-left:30px;border-radius:8px;"/>
+       </form>
+        @Html.ActionLink("Back to list", "Index", new { }, new { @class = "Link2" })
+   </body>
+</html>
+

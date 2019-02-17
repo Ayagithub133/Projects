@@ -1,0 +1,11 @@
+﻿@model  JobsWebSite.Models.Role
+
+
+<form method="get" action="">
+    
+        <h2 style="color:#e4f1fe;margin-left:10px;">Role Name :</h2>
+    
+        <label class="userLabels" style="color:#2574a9;margin-left:40px;margin-top:10px;font-size:25px;">@Model.RoleName</label>
+    
+</form>
+@Html.ActionLink("Back To List", "Index", new { }, new { @class = "Link2" })

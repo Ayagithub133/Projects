@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "ContactUs";
+}
+@model  JobsWebSite.Models.ContactUsModel
+<form method="post" action="">
+
+    @Html.DisplayNameFor(m=>Model.Name)
+    @Html.ValidationMessageFor(x=>Model.Name,null,new{@class="error"})
+    @Html.EditorFor(m=>Model.Name)
+    <br />
+    @Html.ValidationMessageFor(x=>Model.Email,null,new{@class="error"})
+    @Html.DisplayNameFor(m=>Model.Email)
+    @Html.EditorFor(m=>Model.Email)
+    <br />
+    @Html.ValidationMessageFor(x=>Model.Subject,null,new{@class="error"})
+    @Html.DisplayNameFor(m=>Model.Subject)
+    @Html.EditorFor(m=>Model.Subject)
+    <br />
+    @Html.ValidationMessageFor(x=>Model.Message,null,new{@class="error"})
+    @Html.DisplayNameFor(m=>Model.Message)
+    @Html.TextArea("Message")
+    <br />
+    <input type="submit" value="Send your message" />
+</form>

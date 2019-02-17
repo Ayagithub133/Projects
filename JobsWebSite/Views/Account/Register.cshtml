@@ -1,0 +1,77 @@
+﻿@model  JobsWebSite.Models.UserProfile
+
+<!Doctype html>
+<html>
+    <head><title></title>
+        <link rel="stylesheet" href="~/Contents/style.css" />
+    </head>
+    <body>
+        <div class="RegisterDiv">
+            <form method="post" action="">
+            <table class="t">
+                <tr>@Html.ValidationMessageFor(x=>Model.FirstName,null,new{@class="error"})</tr>
+                <tr>
+                    
+                    <td><label class="userLabels ">First Name</label></td>
+                    <td>
+                        
+                        <input type="text" name="FirstName" class="userInputs div2" /></td>
+                </tr>
+                <tr>@Html.ValidationMessageFor(x=>Model.LastName,null,new{@class="error"})</tr>
+                <tr>
+                    <td><label class="userLabels">Last Name</label></td>
+                    <td>
+                        
+                        <input type="text" name="LastName" class="userInputs"/></td>
+                </tr>
+                <tr>@Html.ValidationMessageFor(x=>Model.Email,null,new{@class="error"})</tr>
+                <tr>
+                    <td>
+                       
+                        <label class="userLabels">Email</label></td>
+                    <td><input type="text" name="Email" class="userInputs"/></td>
+                </tr>
+                <tr><tr>@Html.ValidationMessageFor(x=>Model.UserPassword,null,new{@class="error"})</tr></tr>
+                <tr>
+                    <td><label class="userLabels">Password</label></td>
+                    <td>
+                        
+                        <input type="text" name="UserPassword" class="userInputs"/></td>
+                </tr>
+                <tr>@Html.ValidationMessageFor(x=>Model.ConfirmPassword,null,new{@class="error"})</tr>
+                <tr>
+                    <td><label class="userLabels">Confirm Password</label></td>
+                    <td>
+                        
+                        <input type="text" name="ConfirmPassword" class="userInputs"/></td>
+                </tr>
+                <tr>@Html.ValidationMessageFor(x=>Model.UserType,null,new{@class="error"})</tr>
+                <tr>
+                    <td><label class="userLabels">User Type</label>
+                        
+                    </td>
+                    
+                    <td>
+                        
+                         <select class="userInputs" name="UserType">
+                        @foreach (var i in (SelectList)ViewBag.UserType)
+                        { 
+                            <option class="userLabels" >@i.Text
+                            </option>
+                            
+                        }
+                       
+                @*<option class="userLabels" >FreeLancer</option>*@
+            </select>
+                        @*@Html.DropDownList("UserType", new SelectList(ViewBag.UserType,"RoleName","RoleName"), new { @class = "userInputs"  })  *@
+                        
+                        </td>
+                    
+                </tr>
+                
+                <tr><td colspan="2"><input type="submit" value="Register" class="btnRegister"/></td></tr>
+            </table>
+           </form>
+           </div>
+    </body>
+</html>

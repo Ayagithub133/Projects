@@ -1,0 +1,58 @@
+﻿@model  JobsWebSite.Models.Jobs
+
+
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1 style="color:white">Edit Jobs</h1>
+        <br /><hr /><br />
+      @using (Html.BeginForm("Create", "Jobs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+       {
+           <table>
+               <tr>
+                  <td class="userLabels">@Html.DisplayNameFor(x => Model.JobTitle)</td>
+                  <td>
+                      @Html.ValidationMessageFor(x=>Model.JobTitle,null,new{@class="error"})
+                      <input type="text" name="JobTitle" value="@Model.JobTitle"  class="userInputs" style="border-color:white" /></td>
+               </tr>
+               <tr>
+                   <td class="userLabels">@Html.DisplayNameFor(x => Model.JobDescription)</td>
+                   <td class="userInputs" style="border-color:white">
+                       @Html.ValidationMessageFor(x=>Model.JobDescription,null,new{@class="error"})
+                       <input type="text" name="JobDescription" value="@Model.JobDescription" class="userInputs" style="border-color:white" /></td>
+               </tr>
+             @*
+             @Html.DisplayNameFor(x => Model.CategoryId)
+             
+             <select name="CategoryId">
+                 <option value="1">General Sector</option>
+                 <option value="2">Special Sector</option>
+             </select>*@
+               <tr>
+                   <td class="userLabels">@Html.DisplayNameFor(x => Model.CategoryId)</td>
+                   <td ><select name="CategoryId" class="userInputs" style="border-color:white">
+                 <option value="1">General Sector</option>
+                 <option value="2">Special Sector</option>
+             </select></td>
+               </tr>
+               <tr>
+                   <td class="userLabels">@Html.DisplayNameFor(x=>Model.JobImage)
+                   </td>
+                  <td ><input type="file" name="upload" id="pic" class="userInputs" style="border-color:white"/></td>
+              </tr>
+               <tr><td ><input type="submit" value="Save" id="save" onclick="CkeckImage()" class="Link2" style="border-color:white"/></td></tr>
+     
+           </table>
+            
+
+       }
+
+
+        @Html.ActionLink("Back To List", "Index", new { }, new { @class = "Link2" })
+    </body>
+</html>
+
+
+ 

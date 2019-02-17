@@ -1,0 +1,32 @@
+﻿@model  JobsWebSite.Models.Category
+
+
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h3 class="userLabels">Edit Category</h3>
+        <br /><hr /><br />
+        <form method="post" action="">
+           <table>
+               <tr class="categorytablebody">
+                   <td> <label >CategoryName</label>
+                   <td>
+                       @Html.ValidationMessageFor(x=>Model.CategoryName,null,new{@class="error"})
+                        <input type="text" class="userInputs" value="@Model.CategoryName" name="CategoryName"/></td>
+               </tr>
+               <tr class="categorytablebody">
+                   <td> <label >CategoryDescription</label>
+                   <td> 
+                       @Html.ValidationMessageFor(x=>Model.CategoryDescription,null,new{@class="error"})
+                       <input type="text" class="userInputs" value="@Model.CategoryDescription" name="CategoryDescription"/></td>
+               </tr>
+           </table> 
+        
+            <input type="submit" value="SaVe" class="Login1" />
+
+        </form>
+        @Html.ActionLink("Back To List","Index",new{},new{@class="Link2"})
+    </body>
+</html>
