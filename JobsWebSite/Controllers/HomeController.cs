@@ -99,7 +99,7 @@ namespace JobsWebSite.Controllers
     public ActionResult ContactUs(ContactUsModel contact)
     {
         var mail = new MailMessage();
-        var LoginInfo = new NetworkCredential("ayaa.mohamed133@gmail.com", "01113510466");
+        var LoginInfo = new NetworkCredential("", "");
         mail.From = new MailAddress(contact.Email);
         mail.To.Add(new MailAddress("ayaa.mohamed133@gmail.com"));
         mail.Subject = contact.Subject;
